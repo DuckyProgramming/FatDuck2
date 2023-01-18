@@ -1,0 +1,9 @@
+levels=[
+	{
+		edge:{x:1200,y:450},
+		player:{x:75,y:240},
+		walls:[
+			{position:{x:0,y:390},type:1,width:150,height:60},
+		],
+	},
+]
