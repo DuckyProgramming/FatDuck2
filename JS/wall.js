@@ -26,6 +26,10 @@ class wall extends physical{
                     this.layer.triangle(-this.width/2+this.width*a/la+2,-this.height/2,-this.width/2+this.width*a/la+8,-this.height/2,-this.width/2+this.width*a/la+this.calc.int[a][0],-this.height/2-this.calc.int[a][1])
                 }
 			break
+            case 3:
+                this.layer.fill(30,120,30,this.fade)
+                this.layer.rect(0,3,this.width,this.height-6)
+            break
 		}
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
@@ -34,7 +38,7 @@ class wall extends physical{
         }
 		for(let a=0,la=this.collide.length;a<la;a++){
             for(let b=0,lb=this.collide[a].length;b<lb;b++){
-                if(boxInsideBox(this,this.collide[a][b])&&this.collide[a][b].timers[1]<=0&&!(a==1&&this.type==1)&&!(this.type==5&&this.timers[0]>30)&&!(this.type==6&&this.z<0.5)&&!((this.type==10||this.type==24)&&this.z<0.9)&&!(this.type==59&&this.timers[0]>0)&&this.type!=62&&!this.collide[a][b].dead){
+                if(boxInsideBox(this,this.collide[a][b])&&this.collide[a][b].timers[1]<=0&&this.type!=3&&!this.collide[a][b].dead){
                     switch(this.type){
                     }
                     if(!this.collide[a][b].dead){
