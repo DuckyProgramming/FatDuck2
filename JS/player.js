@@ -56,6 +56,26 @@ class player extends partisan{
         if(!inputs.keys[0][0]&&!inputs.keys[1][0]&&!inputs.keys[0][1]&&!inputs.keys[1][1]){
             this.anim.direction*=0.95
         }
+        if(this.position.x<=0&&game.links[0]>=0){
+            transition.trigger=true
+            transition.zone=game.links[0]
+            transition.key=0
+        }
+        if(this.position.y<=0&&game.links[1]>=0){
+            transition.trigger=true
+            transition.zone=game.links[1]
+            transition.key=1
+        }
+        if(this.position.x>=game.edge.x&&game.links[2]>=0){
+            transition.trigger=true
+            transition.zone=game.links[2]
+            transition.key=2
+        }
+        if(this.position.y>=game.edge.y&&game.links[3]>=0){
+            transition.trigger=true
+            transition.zone=game.links[3]
+            transition.key=3
+        }
         if((inputs.keys[0][2]||inputs.keys[1][2])&&(this.timers[0]>0||this.jumps>0&&!this.jumped)){
             if(this.timers[0]>0){
                 this.timers[0]=0

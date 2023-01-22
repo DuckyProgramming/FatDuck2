@@ -1,7 +1,8 @@
 levels=[
 	{
 		edge:{x:800,y:600},
-		player:[{x:75,y:240}],
+		player:[{x:20,y:440},{x:0,y:0},{x:780,y:360},{x:0,y:0}],
+		links:[-1,-1,1,-1],
 		walls:[
 			{position:{x:0,y:480},type:2,width:200,height:120},
 			{position:{x:200,y:440},type:2,width:120,height:160},
@@ -10,4 +11,12 @@ levels=[
 			{position:{x:720,y:400},type:2,width:80,height:200},
 		],
 	},
+	/*{
+		edge:{x:0,y:600},
+		player:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}],
+		links:[-1,-1,-1,-1],
+		walls:[
+			{position:{x:0,y:0},type:1,width:0,height:0},
+		],
+	},*/
 ]

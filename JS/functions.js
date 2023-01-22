@@ -147,6 +147,7 @@ function resetWorld(){
 }
 function generateWorld(layer,level,key){
 	game.edge=level.edge
+	game.links=level.links
 	stage.focus.x=game.edge.x/2
 	stage.focus.y=game.edge.y/2
 	entities.players.push(new player(layer,level.player[key].x,level.player[key].y))
