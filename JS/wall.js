@@ -4,7 +4,7 @@ class wall extends physical{
 		this.collide=[entities.players]
         this.calc={int:[]}
         switch(this.type){
-            case 2:
+            case 2: case 4:
                 for(let a=0,la=this.width/10;a<la;a++){
                     this.calc.int.push([random(0,10),random(15,25)])
                 }
@@ -30,6 +30,13 @@ class wall extends physical{
                 this.layer.fill(30,120,30,this.fade)
                 this.layer.rect(0,3,this.width,this.height-6)
             break
+            case 4:
+				this.layer.fill(30,120,30,this.fade)
+				this.layer.rect(0,3,this.width,this.height-6)
+                for(let a=0,la=this.width/10;a<la;a++){
+                    this.layer.triangle(-this.width/2+this.width*a/la+2,-this.height/2+6,-this.width/2+this.width*a/la+8,-this.height/2+6,-this.width/2+this.width*a/la+this.calc.int[a][0]*0.6+2,-this.height/2+12-this.calc.int[a][1])
+                }
+			break
 		}
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
@@ -38,7 +45,8 @@ class wall extends physical{
         }
 		for(let a=0,la=this.collide.length;a<la;a++){
             for(let b=0,lb=this.collide[a].length;b<lb;b++){
-                if(boxInsideBox(this,this.collide[a][b])&&this.collide[a][b].timers[1]<=0&&this.type!=3&&!this.collide[a][b].dead){
+                if(boxInsideBox(this,this.collide[a][b])&&this.collide[a][b].timers[1]<=0&&!this.collide[a][b].dead&&
+                this.type!=3&&this.type!=4){
                     switch(this.type){
                     }
                     if(!this.collide[a][b].dead){
