@@ -152,10 +152,14 @@ function generateWorld(layer,level,key){
 	stage.focus.y=game.edge.y/2
 	entities.players.push(new player(layer,level.player[key].x,level.player[key].y))
 	for(let a=0,la=level.walls.length;a<la;a++){
-		entities.walls.push(new wall(layer,level.walls[a].position.x+level.walls[a].width/2,level.walls[a].position.y+level.walls[a].height/2,level.walls[a].type,level.walls[a].width,level.walls[a].height))
+		if(level.walls[a].layer==0){
+			entities.walls.push(new wall(layer,level.walls[a].position.x+level.walls[a].width/2,level.walls[a].position.y+level.walls[a].height/2,level.walls[a].type,level.walls[a].width,level.walls[a].height))
+		}else{
+			entities.backWalls.push(new wall(layer,level.walls[a].position.x+level.walls[a].width/2,level.walls[a].position.y+level.walls[a].height/2,level.walls[a].type,level.walls[a].width,level.walls[a].height))
+		}
 	}
 	for(let a=0;a<15;a++){
 		entities.clouds.push(new cloud(layer))
 	}
-	run={back:[entities.clouds],fore:[entities.players,entities.walls,entities.particles]}
+	run={back:[entities.clouds],fore:[entities.backWalls,entities.players,entities.walls,entities.particles]}
 }
