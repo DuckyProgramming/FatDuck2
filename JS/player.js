@@ -3,6 +3,7 @@ class player extends partisan{
         super(layer,x,y,0,30,60)
         this.offset={position:{x:0,y:0}}
         this.anim={direction:0,rate:0,weight:0}
+        this.collect={dead:false}
         this.reload=0
         this.jumps=0
         this.jumped=false
@@ -37,6 +38,12 @@ class player extends partisan{
     update(){
         physics.resistance=0.01+0.02*this.anim.weight
         this.movement={speed:0.1*pow(2,this.anim.weight),jump:7.5*pow(5/3,this.anim.weight)}
+        if(this.dead&&!this.collect.dead){
+            this.collect.dead=true
+            for(let a=0;a<10;a++){
+                entities.particles.push(new particle(this.layer,this.position.x,this.position.y,1,[200,0,0],random(0.75,1.5),random(0,360)))
+            }
+        }
         if(this.dead&&this.fade<=0){
             transition.trigger=true
             transition.scene='level'

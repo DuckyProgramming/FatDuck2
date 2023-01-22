@@ -9,6 +9,9 @@ class wall extends physical{
                     this.calc.int.push([random(0,10),random(15,25)])
                 }
             break
+            case 5:
+                this.width-=10
+            break
         }
 	}
 	display(){
@@ -39,8 +42,8 @@ class wall extends physical{
 			break
             case 5:
                 this.layer.fill(120,this.fade)
-                for(let a=0,la=this.width/10;a<la;a++){
-                    this.layer.triangle(-this.width/2+this.width*a/la,this.height/2,-this.width/2+this.width*a/la+10,this.height/2,-this.width/2+this.width*a/la+5,-this.height*3/2)
+                for(let a=0,la=this.width/10+1;a<la;a++){
+                    this.layer.triangle(-this.width/2+this.width*a/(la-1)-4,this.height/2,-this.width/2+this.width*a/(la-1)+4,this.height/2,-this.width/2+this.width*a/(la-1),-this.height*3/2)
                 }
             break
 		}
