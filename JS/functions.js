@@ -34,8 +34,9 @@ function displayTransition(layer,transition){
 			stage.scene=transition.scene
 			if(stage.scene=='level'){
 				game.zone=transition.zone
+				game.key=transition.key
 				resetWorld()
-				generateWorld(graphics.main,levels[game.zone])
+				generateWorld(graphics.main,levels[game.zone],game.key)
 			}
 		}
 	}
@@ -144,15 +145,15 @@ function resetWorld(){
 	entities.players=[]
 	entities.particles=[]
 }
-function generateWorld(layer,level){
+function generateWorld(layer,level,key){
 	game.edge=level.edge
 	stage.focus.x=game.edge.x/2
 	stage.focus.y=game.edge.y/2
-	entities.players.push(new player(layer,level.player.x,level.player.y))
+	entities.players.push(new player(layer,level.player[key].x,level.player[key].y))
 	for(let a=0,la=level.walls.length;a<la;a++){
 		entities.walls.push(new wall(layer,level.walls[a].position.x+level.walls[a].width/2,level.walls[a].position.y+level.walls[a].height/2,level.walls[a].type,level.walls[a].width,level.walls[a].height))
 	}
-	for(let a=0;a<10;a++){
+	for(let a=0;a<15;a++){
 		entities.clouds.push(new cloud(layer))
 	}
 	run={back:[entities.clouds],fore:[entities.players,entities.walls,entities.particles]}

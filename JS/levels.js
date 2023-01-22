@@ -1,9 +1,13 @@
 levels=[
 	{
-		edge:{x:1200,y:450},
-		player:{x:75,y:240},
+		edge:{x:800,y:600},
+		player:[{x:75,y:240}],
 		walls:[
-			{position:{x:0,y:390},type:1,width:150,height:60},
+			{position:{x:0,y:480},type:2,width:200,height:120},
+			{position:{x:200,y:440},type:2,width:120,height:160},
+			{position:{x:320,y:400},type:2,width:240,height:200},
+			{position:{x:560,y:360},type:2,width:160,height:240},
+			{position:{x:720,y:400},type:2,width:80,height:200},
 		],
 	},
 ]

@@ -1,6 +1,6 @@
 class cloud extends entity{
     constructor(layer){
-        super(layer,random(-80,680),random(-80,630),0,0)
+        super(layer,random(-80,980),random(-80,630),0,0)
         this.speed=random(1,1.5)
     }
     display(){
@@ -11,8 +11,8 @@ class cloud extends entity{
     }
     update(){
         this.position.x+=this.speed
-        if(this.position.x>680){
-            this.position.x-=760
+        if(this.position.x>980){
+            this.position.x-=1060
             this.position.y-random(-80,630)
             this.speed=random(1,1.5)
         }

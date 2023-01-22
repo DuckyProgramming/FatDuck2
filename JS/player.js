@@ -2,9 +2,7 @@ class player extends partisan{
     constructor(layer,x,y){
         super(layer,x,y,0,30,60)
         this.offset={position:{x:0,y:0}}
-        this.anim={direction:0,rate:0,weight:1}
-        this.movement={speed:0.2,jump:12.5}
-        this.base.movement={jump:this.movement.jump}
+        this.anim={direction:0,rate:0,weight:0}
         this.reload=0
         this.jumps=0
         this.jumped=false
@@ -37,6 +35,8 @@ class player extends partisan{
         }
     }
     update(){
+        physics.resistance=0.01+0.02*this.anim.weight
+        this.movement={speed:0.1*pow(2,this.anim.weight),jump:7.5*pow(5/3,this.anim.weight)}
         if(this.dead&&this.fade<=0){
             transition.trigger=true
             transition.scene='level'
@@ -66,7 +66,6 @@ class player extends partisan{
             this.velocity.y=-this.movement.jump
             this.timers[1]=1
         }
-        this.movement.jump=this.base.movement.jump
         stage.focus.x=this.position.x
         stage.focus.y=this.position.y
         super.update()

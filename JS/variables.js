@@ -1,8 +1,8 @@
 stage={scale:0,focus:{x:0,y:0,scale:0},scene:'level'}
-game={zone:0,edge:{x:0,y:0},tileSize:40}
-physics={gravity:0.5,resistance:0.02,friction:0.01}
+game={zone:0,key:0,edge:{x:0,y:0},tileSize:40}
+physics={gravity:0.5,resistance:0.01,friction:0.05}
 graphics={main:0,backgrounds:[],minor:[]}
-transition={trigger:false,anim:0,scene:stage.scene,zone:game.zone}
+transition={trigger:false,anim:0,scene:stage.scene,zone:game.zone,key:game.key}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
 entities={clouds:[],walls:[],enemies:[],players:[],particles:[]}
 collision={incident:{x:0,y:0},calculate:{x:0,y:0}}

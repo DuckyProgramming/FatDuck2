@@ -2,7 +2,13 @@ class wall extends physical{
 	constructor(layer,x,y,type,width,height){
 		super(layer,x,y,type,width,height)
 		this.collide=[entities.players]
+        this.calc={int:[]}
         switch(this.type){
+            case 2:
+                for(let a=0,la=this.width/10;a<la;a++){
+                    this.calc.int.push([random(0,10),random(15,25)])
+                }
+            break
         }
 	}
 	display(){
@@ -11,7 +17,14 @@ class wall extends physical{
 		switch(this.type){
             case 1:
 				this.layer.fill(50,200,50,this.fade)
-				this.layer.rect(0,0,this.width+6,this.height+6,3)
+				this.layer.rect(0,0,this.width+6,this.height+6,6)
+			break
+            case 2:
+				this.layer.fill(50,200,50,this.fade)
+				this.layer.rect(0,0,this.width+6,this.height+6,6)
+                for(let a=0,la=this.width/10;a<la;a++){
+                    this.layer.triangle(-this.width/2+this.width*a/la+2,-this.height/2,-this.width/2+this.width*a/la+8,-this.height/2,-this.width/2+this.width*a/la+this.calc.int[a][0],-this.height/2-this.calc.int[a][1])
+                }
 			break
 		}
 		this.layer.translate(-this.position.x,-this.position.y)
