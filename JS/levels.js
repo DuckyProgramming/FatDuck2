@@ -27,7 +27,7 @@ levels=[
 		],
 	},{
 		edge:{x:800,y:600},
-		player:[{x:780,y:0},{x:0,y:0},{x:20,y:440},{x:0,y:0}],
+		player:[{x:780,y:400},{x:0,y:0},{x:20,y:440},{x:0,y:0}],
 		links:[1,-1,3,-1],
 		walls:[
 			{position:{x:0,y:480},type:2,width:120,height:120,layer:0},
@@ -42,7 +42,7 @@ levels=[
 	},{
 		edge:{x:800,y:600},
 		player:[{x:780,y:480},{x:0,y:0},{x:20,y:480},{x:0,y:0}],
-		links:[-1,-1,-1,-1],
+		links:[2,-1,4,-1],
 		walls:[
 			{position:{x:0,y:520},type:2,width:200,height:80,layer:0},
 			{position:{x:200,y:520},type:1,width:40,height:80,layer:0},

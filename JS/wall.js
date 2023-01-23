@@ -46,11 +46,46 @@ class wall extends physical{
                     this.layer.triangle(-this.width/2+this.width*a/(la-1)-4,this.height/2,-this.width/2+this.width*a/(la-1)+4,this.height/2,-this.width/2+this.width*a/(la-1),-this.height*3/2)
                 }
             break
+            case 6:
+                this.layer.fill(255,255,0,this.fade)
+                this.layer.rect(0,0,this.width,this.height)
+                this.layer.fill(0,this.fade)
+                this.layer.quad(-this.width/2,-this.height/2,this.width/2,this.height/2,this.width/2,this.height/6,-this.width/6,-this.height/2)
+                this.layer.quad(-this.width/2,-this.height/6,this.width/6,this.height/2,-this.width/6,this.height/2,-this.width/2,this.height/6)
+                this.layer.triangle(this.width/6,-this.height/2,this.width/2,-this.height/6,this.width/2,-this.height/2)
+                this.layer.stroke(75,this.fade)
+                this.layer.strokeWeight(2)
+                if(this.type==6){
+                    this.layer.line(0,this.base.position.y-this.position.y-game.tileSize*3,0,this.base.position.y-this.position.y)
+                    this.layer.strokeWeight(6)
+                    this.layer.point(0,this.base.position.y-this.position.y-game.tileSize*3)
+                    this.layer.point(0,this.base.position.y-this.position.y)
+                }else if(this.type==7){
+                    this.layer.line(this.base.position.x-this.position.x-game.tileSize*3,0,this.base.position.x-this.position.x,0)
+                    this.layer.strokeWeight(6)
+                    this.layer.point(this.base.position.x-this.position.x-game.tileSize*3,0)
+                    this.layer.point(this.base.position.x-this.position.x,0)
+                }
+            break
 		}
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
 	update(){
         switch(this.type){
+            case 6:
+                if(this.time%240<60){
+                    this.position.y-=2
+                }else if(this.time%240>=120&&this.time%240<180){
+                    this.position.y+=2
+                }
+            break
+            case 7:
+                if(this.time%240<60){
+                    this.position.x-=2
+                }else if(this.time%240>=120&&this.time%240<180){
+                    this.position.x+=2
+                }
+            break
         }
 		for(let a=0,la=this.collide.length;a<la;a++){
             for(let b=0,lb=this.collide[a].length;b<lb;b++){
