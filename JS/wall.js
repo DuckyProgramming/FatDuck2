@@ -46,7 +46,7 @@ class wall extends physical{
                     this.layer.triangle(-this.width/2+this.width*a/(la-1)-4,this.height/2,-this.width/2+this.width*a/(la-1)+4,this.height/2,-this.width/2+this.width*a/(la-1),-this.height*3/2)
                 }
             break
-            case 6:
+            case 6: case 7:
                 this.layer.fill(255,255,0,this.fade)
                 this.layer.rect(0,0,this.width,this.height)
                 this.layer.fill(0,this.fade)
@@ -61,9 +61,9 @@ class wall extends physical{
                     this.layer.point(0,this.base.position.y-this.position.y-game.tileSize*3)
                     this.layer.point(0,this.base.position.y-this.position.y)
                 }else if(this.type==7){
-                    this.layer.line(this.base.position.x-this.position.x-game.tileSize*3,0,this.base.position.x-this.position.x,0)
+                    this.layer.line(this.base.position.x-this.position.x+game.tileSize*3,0,this.base.position.x-this.position.x,0)
                     this.layer.strokeWeight(6)
-                    this.layer.point(this.base.position.x-this.position.x-game.tileSize*3,0)
+                    this.layer.point(this.base.position.x-this.position.x+game.tileSize*3,0)
                     this.layer.point(this.base.position.x-this.position.x,0)
                 }
             break
@@ -81,9 +81,9 @@ class wall extends physical{
             break
             case 7:
                 if(this.time%240<60){
-                    this.position.x-=2
-                }else if(this.time%240>=120&&this.time%240<180){
                     this.position.x+=2
+                }else if(this.time%240>=120&&this.time%240<180){
+                    this.position.x-=2
                 }
             break
         }
