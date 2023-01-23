@@ -4,7 +4,7 @@ physics={gravity:0.5,resistance:0.01,friction:0.05}
 graphics={main:0,backgrounds:[],minor:[]}
 transition={trigger:false,anim:0,scene:stage.scene,zone:game.zone,key:game.key}
 inputs={mouse:{x:0,y:0},rel:{x:0,y:0},keys:[[false,false,false,false],[false,false,false,false]]}
-entities={clouds:[],backWalls:[],walls:[],enemies:[],players:[],particles:[]}
+entities={clouds:[],walls:[[],[],[]],enemies:[],players:[],particles:[]}
 collision={incident:{x:0,y:0},calculate:{x:0,y:0}}
 run={back:[],fore:[]}
 a=0;b=0;c=0;d=0;_=0
