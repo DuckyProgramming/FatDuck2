@@ -93,6 +93,18 @@ class wall extends physical{
                     this.layer.rect(0,-this.height/2+game.tileSize/8+a*game.tileSize/4,this.width,2)
                 }
             break
+            case 12:
+                this.layer.fill(160,this.fade)
+                this.layer.stroke(120,this.fade)
+                this.layer.strokeWeight(4)
+                this.layer.rect(0,0,this.width-4,this.height-4)
+            break
+            case 13:
+                this.layer.fill(120,this.fade)
+                this.layer.stroke(80,this.fade)
+                this.layer.strokeWeight(4)
+                this.layer.rect(0,0,this.width-4,this.height-4)
+            break
 		}
 		this.layer.translate(-this.position.x,-this.position.y)
 	}
@@ -130,7 +142,7 @@ class wall extends physical{
 		for(let a=0,la=this.collide.length;a<la;a++){
             for(let b=0,lb=this.collide[a].length;b<lb;b++){
                 if(boxInsideBox(this,this.collide[a][b])&&this.collide[a][b].timers[1]<=0&&!this.collide[a][b].dead&&
-                this.type!=3&&this.type!=4){
+                this.type!=3&&this.type!=4&&this.type!=13){
                     switch(this.type){
                         case 5:
                             this.collide[a][b].dead=true
