@@ -1,5 +1,5 @@
 stage={scale:0,focus:{x:0,y:0,scale:0},scene:'level'}
-game={zone:7,key:2,links:[],edge:{x:0,y:0},tileSize:40}
+game={zone:8,key:2,links:[],edge:{x:0,y:0},tileSize:40}
 physics={gravity:0.5,resistance:0.01,friction:0.05}
 graphics={main:0,backgrounds:[],minor:[]}
 transition={trigger:false,anim:0,scene:stage.scene,zone:game.zone,key:game.key}
