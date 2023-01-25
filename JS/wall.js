@@ -46,7 +46,7 @@ class wall extends physical{
                     this.layer.triangle(-this.width/2+this.width*a/(la-1)-4,this.height/2,-this.width/2+this.width*a/(la-1)+4,this.height/2,-this.width/2+this.width*a/(la-1),-this.height*3/2)
                 }
             break
-            case 6: case 7:
+            case 6: case 7: case 8: case 9:
                 this.layer.fill(255,255,0,this.fade)
                 this.layer.rect(0,0,this.width,this.height)
                 this.layer.fill(0,this.fade)
@@ -65,6 +65,32 @@ class wall extends physical{
                     this.layer.strokeWeight(6)
                     this.layer.point(this.base.position.x-this.position.x+game.tileSize*3,0)
                     this.layer.point(this.base.position.x-this.position.x,0)
+                }else if(this.type==8){
+                    this.layer.line(0,this.base.position.y-this.position.y+game.tileSize*3,0,this.base.position.y-this.position.y)
+                    this.layer.strokeWeight(6)
+                    this.layer.point(0,this.base.position.y-this.position.y+game.tileSize*3)
+                    this.layer.point(0,this.base.position.y-this.position.y)
+                }else if(this.type==9){
+                    this.layer.line(this.base.position.x-this.position.x-game.tileSize*3,0,this.base.position.x-this.position.x,0)
+                    this.layer.strokeWeight(6)
+                    this.layer.point(this.base.position.x-this.position.x-game.tileSize*3,0)
+                    this.layer.point(this.base.position.x-this.position.x,0)
+                }
+            break
+            case 10:
+                this.layer.fill(200,150,50,this.fade)
+                this.layer.rect(0,0,this.width,this.height)
+                this.layer.fill(100,75,25,this.fade)
+                for(let a=0,la=this.height/game.tileSize*4;a<la;a++){
+                    this.layer.rect(0,-this.height/2+game.tileSize/8+a*game.tileSize/4,this.width,2)
+                }
+            break
+            case 11:
+                this.layer.fill(160,120,40,this.fade)
+                this.layer.rect(0,0,this.width,this.height)
+                this.layer.fill(80,60,20,this.fade)
+                for(let a=0,la=this.height/game.tileSize*4;a<la;a++){
+                    this.layer.rect(0,-this.height/2+game.tileSize/8+a*game.tileSize/4,this.width,2)
                 }
             break
 		}
@@ -84,6 +110,20 @@ class wall extends physical{
                     this.position.x+=2
                 }else if(this.time%240>=120&&this.time%240<180){
                     this.position.x-=2
+                }
+            break
+            case 8:
+                if(this.time%240<60){
+                    this.position.y+=2
+                }else if(this.time%240>=120&&this.time%240<180){
+                    this.position.y-=2
+                }
+            break
+            case 9:
+                if(this.time%240<60){
+                    this.position.x-=2
+                }else if(this.time%240>=120&&this.time%240<180){
+                    this.position.x+=2
                 }
             break
         }

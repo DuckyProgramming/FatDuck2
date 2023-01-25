@@ -72,7 +72,22 @@ levels=[
 			{position:{x:520,y:440},type:7,width:40,height:40,layer:1},
 			{position:{x:680,y:400},type:2,width:120,height:200,layer:0},
 		],
-	},
+	},{
+		edge:{x:600,y:1000},
+		player:[{x:580,y:180},{x:0,y:0},{x:20,y:780},{x:0,y:0}],
+		links:[4,-1,6,-1],
+		walls:[
+			{position:{x:0,y:920},type:10,width:80,height:40,layer:0},
+			{position:{x:50,y:960},type:11,width:20,height:40,layer:0},
+			{position:{x:120,y:800},type:8,width:40,height:40,layer:1},
+			{position:{x:200,y:800},type:6,width:40,height:40,layer:1},
+			{position:{x:280,y:560},type:8,width:40,height:40,layer:1},
+			{position:{x:360,y:560},type:6,width:40,height:40,layer:1},
+			{position:{x:440,y:320},type:8,width:40,height:40,layer:1},
+			{position:{x:520,y:320},type:10,width:80,height:40,layer:0},
+			{position:{x:530,y:360},type:11,width:20,height:640,layer:0},
+		],
+	}
 	/*{
 		edge:{x:0,y:600},
 		player:[{x:0,y:0},{x:0,y:0},{x:0,y:0},{x:0,y:0}],

@@ -159,5 +159,5 @@ function generateWorld(layer,level,key){
 	for(let a=0;a<15;a++){
 		entities.clouds.push(new cloud(layer))
 	}
-	run={back:[entities.clouds],fore:[entities.players,entities.walls[2],entities.walls[1],entities.walls[0],entities.particles]}
+	run={back:[entities.clouds],fore:[entities.walls[2],entities.walls[1],entities.players,entities.walls[0],entities.particles]}
 }
