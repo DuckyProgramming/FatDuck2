@@ -95,13 +95,13 @@ class wall extends physical{
             break
             case 12:
                 this.layer.fill(160,this.fade)
-                this.layer.stroke(120,this.fade)
+                this.layer.stroke(150,this.fade)
                 this.layer.strokeWeight(4)
                 this.layer.rect(0,0,this.width-4,this.height-4)
             break
             case 13:
                 this.layer.fill(120,this.fade)
-                this.layer.stroke(80,this.fade)
+                this.layer.stroke(110,this.fade)
                 this.layer.strokeWeight(4)
                 this.layer.rect(0,0,this.width-4,this.height-4)
             break
